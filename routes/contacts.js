@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { modelNames } = require("mongoose");
 const {
-  getContacts,
   addContacts,
   sendOtp,
   sentOtpContacts,
