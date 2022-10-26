@@ -20,10 +20,13 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 try {
-  mongoose.connect(process.env.DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  mongoose.connect(
+    "mongodb+srv://yash:yash1234otp@cluster0.hrvcj2y.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
   console.log("Database connected");
 } catch (err) {
   console.log(err);
