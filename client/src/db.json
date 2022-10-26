@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "firstName": "vinay",
+    "lastName": "barigai",
+    "phone": "918208474705"
+  },
+  {
+    "id": "2",
+    "firstName": "Kanada",
+    "lastName": "Limbu",
+    "phone": "918208474705"
+  },
+  {
+    "id": "3",
+    "firstName": "Rajendra",
+    "lastName": "Sinha",
+    "phone": "918208474705"
+  },
+  {
+    "id": "4",
+    "firstName": "Abhinav",
+    "lastName": "kamal",
+    "phone": "918208474705"
+  },
+  {
+    "id": "5",
+    "firstName": "Amar",
+    "lastName": "Chitnis",
+    "phone": "918208474705"
+  },
+  {
+    "id": "6",
+    "firstName": "Shree",
+    "lastName": "patil",
+    "phone": "918208474705"
+  },
+  {
+    "id": "7",
+    "firstName": "Bhavesh",
+    "lastName": "sengunthar",
+    "phone": "918208474705"
+  },
+  {
+    "id": "8",
+    "firstName": "yash",
+    "lastName": "nerkar",
+    "phone": "918208474705"
+  },
+  {
+    "id": "9",
+    "firstName": "dhruv",
+    "lastName": "rajput",
+    "phone": "918208474705"
+  },
+  {
+    "id": "10",
+    "firstName": "chirag",
+    "lastName": "chaudhari",
+    "phone": "918208474705"
+  }
+]
