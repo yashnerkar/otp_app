@@ -6,6 +6,8 @@ const path = require("path");
 const port = 8000;
 const contacts = require("./routes/contacts");
 const cors = require("cors");
+const url = process.env.DB;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -19,19 +21,19 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
+
 try {
-  mongoose.connect(
-    "mongodb+srv://yash:yash1234otp@cluster0.hrvcj2y.mongodb.net/?retryWrites=true&w=majority",
-    {
+  mongoose
+    .connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    }
-  );
-  console.log("Database connected");
-} catch (err) {
-  console.log(err);
+    })
+    .then(() => {
+      console.log("Database connected");
+    });
+} catch (error) {
+  console.log(error);
 }
-
 app.listen(port, function (err) {
   if (err) {
     console.log(`Error in running the server: ${err}`);
