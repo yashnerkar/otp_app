@@ -1,45 +1,32 @@
 const contacts = require("../models/contacts");
 const asyncHandler = require("express-async-handler");
-// const data = require("../db.json");
 const Vonage = require("@vonage/server-sdk");
 
+// @desc    store all contacts
 exports.addContacts = asyncHandler(async (req, res, next) => {
   const { db } = req.body;
   const contact = await contacts.create(db);
-  console.log(contact);
   res.status(201).json({
     success: true,
     data: contact,
   });
 });
 
-exports.getContacts = asyncHandler(async (req, res, next) => {
-  const dbcontacts = await contacts.find();
-  res.status(200).json({
-    success: true,
-    count: contacts.length,
-    data: dbcontacts,
-  });
-});
-
+// @desc    to send otp to the contact
 exports.sendOtp = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  console.log(id);
   const contact = await contacts.findOne({ id: id });
   const { otp } = req.body;
   const otpInt = otp.split(":")[1].trim();
-  console.log(otpInt.length);
   const message = `Hi. Your otp is : ${otpInt}`;
   const vonage = new Vonage({
     apiKey: process.env.api_key,
     apiSecret: process.env.api_secret,
   });
-  const from = "919999999999";
+  const from = "Kisan Network Services";
   const to = contact.phone.toString();
   const text = message;
-  console.log(from, to, text);
   if (otpInt.length !== 6) {
-    console.log("otp length is not 6");
     res.status(400).json({
       success: false,
       message: "Please enter a valid otp of 6 random digits!",
@@ -75,6 +62,8 @@ exports.sendOtp = asyncHandler(async (req, res, next) => {
     });
   }
 });
+
+// @desc     contact list which has been sent otp already
 
 exports.sentOtpContacts = asyncHandler(async (req, res, next) => {
   const otpContactsList = await contacts.find({

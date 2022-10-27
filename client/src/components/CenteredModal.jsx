@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
 function CenteredModal({ show, onHide, otp, setOtp, handleSubmit }) {

@@ -1,7 +1,6 @@
 import React from "react";
 import ContactTable from "./ContactTable";
 import Nav from "./Nav";
-// console.log(data);
 const Contacts = ({ data, activeComponent }) => {
   console.log(activeComponent);
   return (

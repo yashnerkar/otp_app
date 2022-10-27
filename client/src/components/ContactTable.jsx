@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React from "react";
 import "./table.css";
 import { useNavigate } from "react-router-dom";
 const ContactTable = ({ data }) => {

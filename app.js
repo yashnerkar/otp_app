@@ -12,7 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/", contacts);
-// Database connection
+
+// production mode
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 if (process.env.NODE_ENV === "production") {
@@ -22,6 +23,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+// database connection
 try {
   mongoose
     .connect(url, {
@@ -34,6 +36,8 @@ try {
 } catch (error) {
   console.log(error);
 }
+
+// server connection
 app.listen(process.env.PORT || port, function (err) {
   if (err) {
     console.log(`Error in running the server: ${err}`);
