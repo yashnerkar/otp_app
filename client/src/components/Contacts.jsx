@@ -5,7 +5,15 @@ const Contacts = ({ data, activeComponent }) => {
   return (
     <div className="container-fluid p-0">
       <Nav activeComponent={activeComponent} />
-      <ContactTable data={data} />
+      {data.length === 0 ? (
+        <div className="text-center mt-4">
+          <div className="spinner-border text-success" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        <ContactTable data={data} />
+      )}
     </div>
   );
 };
