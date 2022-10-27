@@ -12,12 +12,10 @@ function App() {
 
   const postData = async () => {
     await axios.post("/contacts", { db }).then((res) => {
-      console.log(res);
       setData(res.data.data);
     });
   };
   useEffect(() => {
-    console.log("hello");
     postData();
   }, []);
 

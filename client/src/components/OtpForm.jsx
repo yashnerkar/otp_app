@@ -13,19 +13,15 @@ const OtpForm = ({ data }) => {
     success: false,
   });
   const { id } = useParams();
-  console.log(id);
-  console.log(data);
   const contact = data.find((contact) => contact.id == id);
 
-  console.log(contact);
   const handleSubmit = (e) => {
     e.preventDefault();
     setModalShow(false);
-    console.log(otp);
+
     axios
       .post(`/contacts/${id}`, { otp: otp })
       .then((res) => {
-        console.log(res);
         setResponse({
           message: res.data.message,
           success: res.data.success,
@@ -36,7 +32,6 @@ const OtpForm = ({ data }) => {
         }, 3000);
       })
       .catch((err) => {
-        console.log(err);
         setResponse({
           message: err.response.data.message,
           success: err.response.data.success,

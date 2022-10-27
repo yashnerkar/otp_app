@@ -24,7 +24,7 @@ const History = ({ activeComponent }) => {
   useEffect(() => {
     getHistory();
   }, []);
-  console.log(history);
+
   return (
     <div>
       <Nav activeComponent={activeComponent} />
